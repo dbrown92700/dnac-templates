@@ -7,7 +7,7 @@ from includes import baseurl, dnac_user, dnac_password
 
 if __name__ == '__main__':
     #
-    # Log into DNAC and pull current global issues list
+    # Log into DNAC and pull a list of templates
     #
     token = json.loads(getToken(baseurl, dnac_user, dnac_password))['Token']
     jtemplates = json.loads(getTemplates(baseurl, token))
@@ -17,6 +17,10 @@ if __name__ == '__main__':
     for template in jtemplates:
         print(f"{tempnum} - {template['name']}:  {template['templateId']}")
         tempnum += 1
+
+    #
+    # prompt user to choose a template and print the text content of the template
+    #
 
     choice = 0
     while choice != 100:
